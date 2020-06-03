@@ -21,42 +21,49 @@ body {
     height: 95vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    // justify-content: space-around;
     align-items: center;
     color: white;
     h1 {
         font-family: 'Dancing Script', cursive;
-        font-size: 40px;
+        font-size: 38px;
         text-align: center;
+        padding: 9vh 0;
     }
 }
 
 form {
     padding-bottom: 200px;
-    width: 100%;
+    width: 20em;
     text-align: center;
-    input[type=search] {
-        width: 90%;
-        text-align: center;
-        height: 40px;
-        border-radius: 25px;
-        border: none;
-        outline: none;
-        padding-right: 24%;
+    display: flex;
+    flex-direction: column;
+    label {
         font-size: 20px;
+    }
+    input {
+        outline: none;
+        height: 40px;
+        border: none;
+        border-radius: 25px;
+        margin: 5px;
+        text-align: center;
+    }
+    input[type=search] {
+        // width: 90%;
+        // padding-right: 24%;
+        font-size: 20px;
+    }
+    input[type=date] {
+        padding: 0px 15px;
     }
     input[type="submit"] {
         font-size: 20px;
         font-weight: bold;
-        border-radius: 25px;
-        border: none;
-        margin-left: -25%;
-        height: 40px;
-        width: 25%;
-        outline: none;
+        // margin-left: -25%;
+        // width: 25%;
         color: #00b4d8;
-        outline: 0;
-        background-color: whitesmoke;
+        background-color: rgb(216, 213, 208);
         cursor: pointer;
     }
     input::placeholder {
@@ -71,19 +78,11 @@ form {
     .search h1 {
         font-size: 70px;
     }
-    form {
-        padding-bottom: 500px;
-        width: 50%;
-    }
 }
 
 /* Large Screens */
 @media (min-width:901px) {
     .search h1 {
         font-size: 70px;
-    }
-    form {
-        padding-bottom: 500px;
-        width: 35%;
     }
 }

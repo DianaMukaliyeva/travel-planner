@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Heebo&family=Raleway:ital@1&display=swap");
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Raleway', sans-serif;
+}
 
 input,
 textarea,
@@ -13,76 +19,24 @@ body {
     margin: 0;
 }
 
-.search {
-    background-image: linear-gradient(rgba(132, 135, 136, 0.623) 0, transparent), url("../images/mountain.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    height: 95vh;
-    display: flex;
-    flex-direction: column;
-    // justify-content: space-around;
-    align-items: center;
-    color: white;
-    h1 {
-        font-family: 'Dancing Script', cursive;
-        font-size: 38px;
-        text-align: center;
-        padding: 9vh 0;
-    }
+#trip_section {
+   padding-top: 60px;
 }
 
-form {
-    padding-bottom: 200px;
-    width: 20em;
+.container {
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    label {
-        font-size: 20px;
-    }
-    input {
-        outline: none;
-        height: 40px;
-        border: none;
-        border-radius: 25px;
-        margin: 5px;
-        text-align: center;
-    }
-    input[type=search] {
-        // width: 90%;
-        // padding-right: 24%;
-        font-size: 20px;
-    }
-    input[type=date] {
-        padding: 0px 15px;
-    }
-    input[type="submit"] {
-        font-size: 20px;
-        font-weight: bold;
-        // margin-left: -25%;
-        // width: 25%;
-        color: #00b4d8;
-        background-color: rgb(216, 213, 208);
-        cursor: pointer;
-    }
-    input::placeholder {
-        color: silver;
-        text-align: center;
-        padding-left: 5px;
-        font-size: 13px;
-    }
-}
-
-@media (min-width: 600px) and (max-width:900px) {
-    .search h1 {
-        font-size: 70px;
+    h4 {
+        margin-bottom: 10px;
     }
 }
 
 /* Large Screens */
 @media (min-width:901px) {
-    .search h1 {
-        font-size: 70px;
+    .container {
+        font-size: 20px;
     }
 }

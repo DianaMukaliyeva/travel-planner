@@ -1,7 +1,89 @@
-body {
-    background-color: cornsilk;
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-nav {
+body {
+    background-color: #fafafa;
+    margin: 0;
+}
+
+.search {
+    background-image: linear-gradient(rgba(132, 135, 136, 0.623) 0, transparent), url("../images/mountain.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 95vh;
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    h1 {
+        font-family: 'Dancing Script', cursive;
+        font-size: 40px;
+        text-align: center;
+    }
+}
+
+form {
+    padding-bottom: 200px;
+    width: 100%;
+    text-align: center;
+    input[type=search] {
+        width: 90%;
+        text-align: center;
+        height: 40px;
+        border-radius: 25px;
+        border: none;
+        outline: none;
+        padding-right: 24%;
+        font-size: 20px;
+    }
+    input[type="submit"] {
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 25px;
+        border: none;
+        margin-left: -25%;
+        height: 40px;
+        width: 25%;
+        outline: none;
+        color: #00b4d8;
+        outline: 0;
+        background-color: whitesmoke;
+        cursor: pointer;
+    }
+    input::placeholder {
+        color: silver;
+        text-align: center;
+        padding-left: 5px;
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 600px) and (max-width:900px) {
+    .search h1 {
+        font-size: 70px;
+    }
+    form {
+        padding-bottom: 500px;
+        width: 50%;
+    }
+}
+
+/* Large Screens */
+@media (min-width:901px) {
+    .search h1 {
+        font-size: 70px;
+    }
+    form {
+        padding-bottom: 500px;
+        width: 35%;
+    }
 }

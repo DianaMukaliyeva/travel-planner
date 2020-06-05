@@ -5,20 +5,25 @@ header {
 }
 
 .navbar__menu {
-    background-color: white;
+    background-color: whitesmoke;
     height: 59px;
     line-height: 60px;
-    ul {
+
+    #navbar__list {
         padding-left: 0;
         margin: 0;
         text-align: right;
         font-size: small;
+        display: flex;
+        justify-content: center;
     }
+
     li {
         flex: 1;
         display: inline-block;
         text-align: center;
     }
+
     .menu__link {
         display: block;
         font-size: 25px;
@@ -26,26 +31,17 @@ header {
         text-decoration: none;
         color: #00b4d8;
     }
-}
 
-#navbar__list {
-    display: flex;
-    justify-content: center;
-}
-
-/* Median screens */
-@media (min-width: 600px) and (max-width:900px) {
-    .menu__link:hover {
-        background: #333;
-        color: #fff;
-        transition: ease 0.3s all;
+    .active-class {
+        background: rgb(209, 181, 181);
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%);
     }
 }
 
 /* Large Screens */
-@media (min-width:901px) {
+@media (min-width:1200px) {
     .menu__link:hover {
-        background: #333;
+        background: rgb(136, 135, 135);
         color: #fff;
         transition: ease 0.3s all;
     }

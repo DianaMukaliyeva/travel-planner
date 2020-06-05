@@ -10,56 +10,78 @@
     <header>
         <nav class="navbar__menu">
           <ul id="navbar__list">
-              <li><a href="#" class="menu__link">Home</a></li>
+              <li><a href="#main" class="menu__link">Home</a></li>
               <li><a href="#trip_section" class="menu__link">Trips</a></li>
-              <li><a href="#footer"class="menu__link">Contact</a></li>
+              <li><a href="#footer"class="menu__link" id="footer_nav">Contact</a></li>
           </ul>
         </nav>
     </header>
+
     <main>
-        <section class="search">
-            <h1>Welcome to Travel App</h1>
-            <form onsubmit="return Client.handleSubmit(event)">
-                <input type="search" placeholder="WHERE DO YOU WANNA GO?">
+        <section id="main" class="trip_info">
+            <h1 class="welcome">Welcome to Travel App</h1>
+            <form class="trip_info_form" onsubmit="return Client.handleSubmit(event)">
+                <input class="trip_info_input input_search" type="search" id="city" placeholder="WHERE DO YOU WANNA GO?" required>
                 <label>Depart date
-                    <input type="date" id="start" name="trip-start" min="2018-01-01" max="2035-12-31" placeholder="start date">
+                    <input class="trip_info_input input_date" type="date" id="depart_date" name="trip-start" min="2018-01-01" max="2035-12-31" value="2020-06-15">
                 </label>
-                <input type="submit" value="Search"  onclick="return Client.handleSubmit(event)">
+                <input class="trip_info_input input_submit" type="submit" value="Search">
             </form>
         </section>
+
         <section id="trip_section">
-            <p>Shfohfoeifhowiehgo iegheoighoeirhgeoirhgeoirg</p>
-            <p>Shfohfoeifhowiehgoi egheoighoeirhgeoirhgeoirg</p>
-            <p>Shfohfoeifhowiehgoie gheoighoeirhgeoirhgeoirg</p>
-            <p>Shfohfoeifhowiehgoieg heoighoeirhgeoirhgeoirg</p>
-            <p>Shfohfoeifhowiehgoiegh eoighoeirhgeoirhgeoirg</p>
-            <p>Shfohfoeifhowiehgoieghe oighoeirhgeoirhgeoirg</p>
-            <p>Shfohfoeifhowiehgoiegheo ighoeirhgeoirhgeoirg</p>
-            <p>Shfohfoeifhowiehgoiegheoi ghoeirhgeoirhgeoirg</p>
-            <p>Shfohfoeifhowiehgoiegheoig hoeirhgeoirhgeoirg</p>
-            <p>Shfohfoeifhowiehgoiegheoigh oeirhgeoirhgeoirg</p>
-            <p>Shfohfoeifhowiehgoiegheoigho eirhgeoirhgeoirg</p>
-            <p>Shfohfoeifhowiehgoiegheoighoe irhgeoirhgeoirg</p>
-            <p>Shfohfoeifhowiehgoiegheoighoei rhgeoirhgeoirg</p>
-            <p>Some text</p>
-            <p>Some text</p>
+            <div class="radio-toolbar">
+                <input class="radio_input" type="radio" id="futureTrips" name="trip" value="future" checked>
+                <label class="radio_label" for="futureTrips">Future trips</label>
+                <input class="radio_input" type="radio" id="pastTrips" name="trip" value="past">
+                <label class="radio_label" for="pastTrips">Past trips</label>
+            </div>
+
+            <div class="trip_collection">
+                <div class="trip_detail">
+                    <img class="trip_img" src="../images/mountain.jpg">
+                    <h4>Shfohfoeifhowiehgo iegheoighoeirhgeoirhgeoirg</h4>
+                    <p>Date: 08-06-2020</p>
+                </div>
+                <div class="trip_detail">
+                    <p>Shfohfoeifhowiehgo iegheoighoeirhgeoirhgeoirg</p>
+                </div>
+                <div class="trip_detail">
+                    <p>Shfohfoeifhowiehgo iegheoighoeirhgeoirhgeoirg</p>
+                </div>
+                <div class="trip_detail">
+                    <p>Shfohfoeifhowiehgo iegheoighoeirhgeoirhgeoirg</p>
+                </div>
+                <div class="trip_detail">
+                    <p>Shfohfoeifhowiehgo iegheoighoeirhgeoirhgeoirg</p>
+                </div>
+                <div class="trip_detail">
+                    <p>Shfohfoeifhowiehgo iegheoighoeirhgeoirhgeoirg</p>
+                </div>
+                <div class="trip_detail">
+                    <p>Shfohfoeifhowiehgo iegheoighoeirhgeoirhgeoirg</p>
+                </div>
+                <p class="trip_detail">Some text</p>
+                <p class="trip_detail">Some text</p>
+            </div>
         </section>
     </main>
+
     <footer id="footer">
-        <div class="container">
+        <div class="flex-footer">
             <div class="footer_info">
-                <h4>Information</h4>
+                <h4 class="caption">Information</h4>
                 <div>Diana Mukaliyeva<br>Finland, Espoo<br><a href="mailto:here@example.com">Send an email</a></div>
             </div>
+
             <div class="footer_media">
-                <h4>Social media</h4>
+                <h4 class="caption">Social media</h4>
                 <div class="media">
                     <a><img src="./images/instagram.png" alt="instagram"></a>
                     <a><img src="./images/twitter.png" alt="twitter"></a>
                     <a href="https://www.linkedin.com/in/diana-mukaliyeva/" target="__blank"><img src="./images/linkedin.png" alt="linkedin"></a>
                 </div>
             </div>
-        
         </div>
     </footer>
 </body>

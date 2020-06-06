@@ -19,6 +19,12 @@ body {
     margin: 0;
 }
 
+#main_target {
+    position: absolute;
+    left: 0px;
+    top: -60px;
+}
+
 #trip_section {
     padding-top: 60px;
     background-color: #f1f0f0;
@@ -65,6 +71,11 @@ body {
         max-height: 100vw;
         margin: 10px;
         cursor: pointer;
+        transition: transform .2s;
+    }
+
+    .trip_detail:hover {
+        transform: scale(1.05);
     }
 
     .trip_img {
@@ -114,7 +125,7 @@ body {
 }
 
 /* Very Large Screens */
-@media (min-width:1400px) {
+@media (min-width:1700px) {
     .radio-toolbar .radio_label:hover {
         background: rgba(202, 202, 202, 0.596);
     }

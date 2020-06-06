@@ -2,6 +2,7 @@ import { handleSubmit } from './js/app';
 import { init } from './js/menuActiveSection';
 
 import './styles/main.scss';
+import './styles/modal.scss';
 import './styles/navigation.scss';
 import './styles/form.scss';
 import './styles/footer.scss';

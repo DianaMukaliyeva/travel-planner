@@ -10,15 +10,16 @@
     <header>
         <nav class="navbar__menu">
           <ul id="navbar__list">
-              <li><a href="#main" class="menu__link">Home</a></li>
-              <li><a href="#trip_section" class="menu__link">Trips</a></li>
+              <li><a href="#main_target" class="menu__link" id="main_nav">Home</a></li>
+              <li><a href="#trip_section" class="menu__link" id="trip_nav">Trips</a></li>
               <li><a href="#footer"class="menu__link" id="footer_nav">Contact</a></li>
           </ul>
         </nav>
     </header>
 
     <main>
-        <section id="main" class="trip_info">
+        <div id="main_target"></div>
+        <section class="trip_info">
             <h1 class="welcome">Welcome to Travel App</h1>
             <form class="trip_info_form" onsubmit="return Client.handleSubmit(event)">
                 <input class="trip_info_input input_search" type="search" id="city" placeholder="WHERE DO YOU WANNA GO?" required>
@@ -27,6 +28,13 @@
                 </label>
                 <input class="trip_info_input input_submit" type="submit" value="Search">
             </form>
+        </section>
+
+        <section id="my_modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+            </div>
         </section>
 
         <section id="trip_section">

@@ -21,7 +21,7 @@
         <div id="main_target"></div>
         <section class="trip_info">
             <h1 class="welcome">Welcome to Travel App</h1>
-            <form class="trip_info_form" onsubmit="return Client.handleSubmit(event)">
+            <form class="trip_info_form" onsubmit="return Client.handleSearch(event)">
                 <input class="trip_info_input input_search" type="search" id="city" placeholder="WHERE DO YOU WANNA GO?" required>
                 <label>Depart date
                     <input class="trip_info_input input_date" type="date" id="depart_date" name="trip-start" min="2018-01-01" max="2035-12-31" value="2020-06-15">
@@ -36,11 +36,14 @@
                     <span class="close">&times;</span>
                 </div>
                 <div class="modal_info">
-                    <img src="./images/mountain.jpg">
-                    <p>Trip to: Paris, France<br>Departing: 02/12/2021</p>
-                    <p>Paris, France is 220 days away</p>
-                    <p>Weather: High: 46, Low: -54</p>
-                    <input type='button' value='Save Trip'>
+                    <img id="modal_img" src="./images/mountain.jpg">
+                    <p>
+                        <h2>Trip to <span class="city">Paris</span>, <span class="country">France</span></h2>
+                        <b>Departing: </b><span id="date">02/12/2021</span>
+                    </p>
+                    <p>Trip to <span class="city">Paris</span>, <span class="country">France</span> <span id="amount_of_days">is 220  days away</span></p>
+                    <p><b>Weather: </b><span id="high_temp">High: 46</span><span id="low_temp">, Low: -54</span> <span id="weather"></span></p>
+                    <input id="modal_button" type="button" value="Save Trip">
                 </div>
             </div>
         </section>
@@ -56,8 +59,9 @@
             <div class="trip_collection">
                 <div class="trip_detail">
                     <img class="trip_img" src="../images/mountain.jpg">
-                    <h4>Shfohfoeifhowiehgo iegheoighoeirhgeoirhgeoirg</h4>
+                    <h4>Trip to Paris, France</h4>
                     <p>Date: 08-06-2020</p>
+                    <input id="trip_delete" name="0" type="button" value="Delete Trip">
                 </div>
                 <div class="trip_detail">
                     <p>Shfohfoeifhowiehgo iegheoighoeirhgeoirhgeoirg</p>

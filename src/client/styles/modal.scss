@@ -27,14 +27,12 @@
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
-    // height: 50%;
 }
 
 .modal_info {
     text-align: center;
     padding-bottom: 20px;
     img {
-        // margin-top: 10px;
         width: 90%;
         height: 60%;
     }
@@ -58,7 +56,7 @@
 .close {
     color: #aaaaaa;
     float: right;
-    font-size: 28px;
+    font-size: 38px;
     font-weight: bold;
 }
 
@@ -81,10 +79,6 @@
     .modal-content {
         width: 60vw;
         transform: translate(-50%, -50%);
-    }
-
-    .close {
-        font-size: 38px;
     }
 }
 

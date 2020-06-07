@@ -63,12 +63,30 @@ body {
     justify-content: center;
     margin: 20px;
 
+    input {
+        outline: none;
+        border: none;
+        border-radius: 25px;
+        margin: 5px;
+        padding: 5px;
+        text-align: center;
+        color: #00b4d8;
+        background-color: rgb(216, 213, 208);
+        width: 50%;
+        cursor: pointer;
+    }
+
+    input:hover {
+        background-color: rgb(202, 202, 202);
+        transform: scale(1.05);
+    }
+
     .trip_detail {
         background-color: white;
         flex: 1 1 100vw;
         text-align: center;
         min-height: 80vw;
-        max-height: 100vw;
+        // max-height: 100vw;
         margin: 10px;
         cursor: pointer;
         transition: transform .2s;
@@ -92,7 +110,7 @@ body {
             flex: 1 1 30vw;
             max-width: 50vw;
             min-height: 30vw;
-            max-height: 50vw;
+            // max-height: 50vw;
         }
 
         .trip_img {
@@ -114,7 +132,7 @@ body {
             flex: 1 1 30vw;
             max-width: 50vw;
             min-height: 30vw;
-            max-height: 50vw;
+            // max-height: 50vw;
         }
 
         .trip_img {
@@ -136,7 +154,7 @@ body {
             flex: 1 1 20vw;
             max-width: 20vw;
             min-height: 20vw;
-            max-height: 20vw;
+            // max-height: 20vw;
             margin: 10px;
         }
 

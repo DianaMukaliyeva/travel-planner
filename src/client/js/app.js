@@ -1,3 +1,6 @@
+import { fillModalWindow } from './modal';
+import { toggleModal } from './modal';
+
 const getTripInformation = async (url, data) => {
     const request = await fetch(url, {
         method: 'POST',
@@ -11,30 +14,25 @@ const getTripInformation = async (url, data) => {
         const data = await request.json();
         return data;
     } catch (error) {
-        return ({error, error});
+        return ({success: false});
     }
 };
 
-const updateUI = () => {
+const handleEvent = (trip) => {
+    fillModalWindow(trip, 'Save Trip');
     toggleModal();
-
 };
 
-const toggleModal = () => {
-    document.getElementById('trip_modal').classList.toggle("show-modal");
-}
-
-export const handleSubmit = async (event) => {
+export const handleSearch = async (event) => {
     event.preventDefault();
-    var closeButton = document.querySelector(".close");
-    closeButton.addEventListener("click", toggleModal);
+
     const city = document.getElementById('city').value;
     const date = document.getElementById('depart_date').value;
     const now = new Date();
     const timeOffset = now.getTimezoneOffset() * 60000;
+
     const data = {city: city, departDate: date, timeOffset: timeOffset};
-    console.log(city);
-    console.log(date);
     const trip = await getTripInformation('http://localhost:5000/tripInfo', data);
-    trip.success ? updateUI(trip) : alert('Couldn\'t find city with this name');
+
+    trip.success ? handleEvent(trip.trip) : alert('Couldn\'t find city with this name');
 };

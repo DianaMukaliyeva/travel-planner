@@ -1,5 +1,5 @@
-import { handleSubmit } from './js/app';
-import { init } from './js/menuActiveSection';
+import { handleSearch } from './js/app';
+import { init } from './js/init';
 
 import './styles/main.scss';
 import './styles/modal.scss';
@@ -14,4 +14,4 @@ import link from './images/linkedin.png';
 
 window.addEventListener('DOMContentLoaded', init);
 
-export { handleSubmit };
+export { handleSearch };

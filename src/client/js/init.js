@@ -3,12 +3,11 @@ import { addTripToUI } from './trip';
 
 const setActiveNavMenu = () => {
     let mainNavLinks = document.querySelectorAll('.menu__link');
-    let fromTop = window.scrollY;
     let footer_nav = document.getElementById('footer_nav');
 
     mainNavLinks.forEach(link => { link.classList.remove("active-class"); });
 
-    if ((window.innerHeight + window.pageYOffset + 10) >= document.body.offsetHeight) {
+    if ((window.innerHeight + window.pageYOffset + 5) >= document.body.offsetHeight) {
         footer_nav.classList.add("active-class");
     } else if (window.scrollY <= window.innerHeight / 2) {
         document.getElementById('main_nav').classList.add("active-class");
@@ -26,19 +25,21 @@ const getAllTrips = async () => {
 
 
 const updateUI = (trips) => {
-    console.log(trips);
     for (let key in trips) {
         addTripToUI(key, trips[key]);
     }
 };
 
 export const deleteTrip = async (id, item) => {
-    const request = await fetch('http://localhost:5000/trips/' + id, {
-        method: 'DELETE',
-    });
-    const res = await request.json();
-    if (res) {
-        item.parentNode.removeChild(item);
+    const confirmation = confirm('Are you sure you want to delete this trip?');
+    if (confirmation) {
+        const request = await fetch('http://localhost:5000/trips/' + id, {
+            method: 'DELETE',
+        });
+        const res = await request.json();
+        if (res) {
+            item.parentNode.removeChild(item);
+        }
     }
 };
 
@@ -81,5 +82,4 @@ export const init = async () => {
     document.querySelectorAll(".radio_label").forEach(function(item) {
         item.addEventListener('click', tripsFutureOrPast);
     });
-
 };

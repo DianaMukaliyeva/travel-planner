@@ -45,6 +45,7 @@ export const fillModalWindow = (trip, actionButton, id) => {
 
 export const saveOrDeleteTrip = async (event) => {
     const buttonValue = document.getElementById('modal_button').value;
+ 
     if (buttonValue === 'Save Trip') {
         const request = await fetch('http://localhost:5000/saveTrip');
         const res = await request.json();
@@ -55,6 +56,7 @@ export const saveOrDeleteTrip = async (event) => {
         const item = document.querySelector('.trip_detail[data-id="' + id + '"]');
         deleteTrip(id, item);
     }
+
     toggleModal();
 };
 

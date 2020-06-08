@@ -10,6 +10,7 @@ const getTripInformation = async (url, data) => {
         },
         body: JSON.stringify(data),
     });
+
     try {
         const data = await request.json();
         return data;

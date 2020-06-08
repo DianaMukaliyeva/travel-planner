@@ -2,7 +2,6 @@ export const addTripToUI = (id, trip) => {
     const now = new Date();
     now.setHours(0,0,0,0);
     const timeOffset = now.getTimezoneOffset() * 60000;
-    const date = new Date(trip.departDate);
     const diff = (trip.departDate - now + timeOffset)/1000/60/60/24;
 
     const divItem = document.createElement('div');

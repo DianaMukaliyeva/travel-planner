@@ -71,7 +71,6 @@ const getForecast = async (url, userKey, cityId, diff) => {
             trip.lowTemp = res.data[0].min_temp;
         }
     } catch (error) {
-        // console.log(error);
         trip.weather = 'No forecast for this city';
     }
 }

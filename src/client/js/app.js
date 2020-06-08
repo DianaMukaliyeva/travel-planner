@@ -19,7 +19,7 @@ const getTripInformation = async (url, data) => {
 };
 
 const handleEvent = (trip) => {
-    fillModalWindow(trip, 'Save Trip');
+    fillModalWindow(trip, 'Save Trip', -1);
     toggleModal();
 };
 

@@ -63,7 +63,7 @@ body {
     justify-content: center;
     margin: 20px;
 
-    input {
+    .delete_trip {
         outline: none;
         border: none;
         border-radius: 25px;
@@ -76,7 +76,7 @@ body {
         cursor: pointer;
     }
 
-    input:hover {
+    .delete_trip:hover {
         background-color: rgb(202, 202, 202);
         transform: scale(1.05);
     }

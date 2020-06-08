@@ -1,4 +1,5 @@
 import { toggleModal, saveOrDeleteTrip, fillModalWindow } from './modal';
+import { addTripToUI } from './trip';
 
 const setActiveNavMenu = () => {
     let mainNavLinks = document.querySelectorAll('.menu__link');
@@ -26,19 +27,38 @@ const getAllTrips = async () => {
 
 const updateUI = (trips) => {
     console.log(trips);
-    // trips.forEach(trip => {console.log(trip)});
+    for (let key in trips) {
+        addTripToUI(key, trips[key]);
+    }
 };
 
-export const deleteTrip = async (event) => {
-    const id = event.target.name;
-    console.log(id);
+export const deleteTrip = async (id, item) => {
     const request = await fetch('http://localhost:5000/trips/' + id, {
         method: 'DELETE',
     });
+    const res = await request.json();
+    if (res) {
+        item.parentNode.removeChild(item);
+    }
 };
 
-const showTrip = () => {
-    fillModalWindow(trip, )
+export const getTrip = async (id) => {
+    const request = await fetch('http://localhost:5000/trip/' + id);
+    const res = await request.json();
+    if (res.success) {
+        return res.trip;
+    }
+    return null;
+};
+
+const tripAction = async (event, id, item) => {
+    if (event.target.name == 'delete') {
+        deleteTrip(id, item);
+    } else {
+        const trip = await getTrip(id);
+        fillModalWindow(trip, 'Delete Trip', id);
+        toggleModal();
+    }
 }
 
 export const init = async () => {
@@ -50,8 +70,8 @@ export const init = async () => {
 
     document.querySelector(".close").addEventListener("click", toggleModal);
     document.getElementById('modal_button').addEventListener('click', saveOrDeleteTrip);
-    document.getElementById('trip_delete').addEventListener('click', deleteTrip);
     document.querySelectorAll(".trip_detail").forEach(function(item) {
-        item.addEventListener('click', showTrip);
+        const id = item.dataset.id;
+        item.addEventListener('click', function(e) {tripAction(e, id, item);});
     });
 };

@@ -1,4 +1,5 @@
 import { deleteTrip } from './init';
+import { addTripToUI } from './trip';
 
 const clearModal = () => {
     document.getElementById('amount_of_days').innerHTML = '';
@@ -20,11 +21,14 @@ export const fillModalWindow = (trip, actionButton, id) => {
     document.querySelectorAll('.country').forEach(item =>{item.innerHTML = trip.country;});
     document.getElementById('date').innerHTML = `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`;
     document.getElementById('modal_button').value = actionButton;
+    document.getElementById('modal_button').setAttribute('data-id', id);
 
     if (diff === 0) {
         document.getElementById('amount_of_days').innerHTML = 'is today &#128131;';
     }else if (diff < 0) {
         document.getElementById('amount_of_days').innerHTML = `was ${diff * -1} days ago`;
+    } else if (diff === 1) {
+        document.getElementById('amount_of_days').innerHTML = `is tomorrow`;
     } else {
         document.getElementById('amount_of_days').innerHTML = `is ${diff} days away`;
     }
@@ -44,9 +48,12 @@ export const saveOrDeleteTrip = async (event) => {
     if (buttonValue === 'Save Trip') {
         const request = await fetch('http://localhost:5000/saveTrip');
         const res = await request.json();
-        const trip = res.trip;
+        addTripToUI(res.id, res.trip);
+        window.location.reload();
     } else if (buttonValue === 'Delete Trip') {
-        deleteTrip(event);
+        const id = event.target.dataset.id;
+        const item = document.querySelector('.trip_detail[data-id="' + id + '"]');
+        deleteTrip(id, item);
     }
     toggleModal();
 };

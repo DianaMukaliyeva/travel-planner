@@ -134,7 +134,7 @@ app.post('/tripInfo', async (req, res) => {
         if (diff < 0) {
             url = `https://api.weatherbit.io/v2.0/history/daily?start_date=${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}&end_date=${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()+1}`
         } else if (diff > oneDay * 15) {
-            url = `https://api.weatherbit.io/v2.0/history/daily?start_date=${date.getFullYear()-1}-${date.getMonth()+1}-${date.getDate()}&end_date=${date.getFullYear()-1}-${date.getMonth()+1}-${date.getDate()+1}`
+            url = `https://api.weatherbit.io/v2.0/history/daily?start_date=2019-${date.getMonth()+1}-${date.getDate()}&end_date=2019-${date.getMonth()+1}-${date.getDate()+1}`
         } else {
             url = `http://api.weatherbit.io/v2.0/forecast/daily?`
         }
@@ -159,14 +159,32 @@ app.get('/saveTrip', (req, res) => {
     trips[id] = trip;
     id++;
 
-    res.json({trip: trip});
+    res.json({
+        id: id - 1,
+        trip: trip
+    });
 })
 
+/** @api {delete} /trips/:id Delete trip with given id */
 app.delete('/trips/:id', (req, res) => {
     try {
         const id = req.params.id;
         delete trips[id];
         res.send({success: true});
+    } catch (error) {
+        res.send({success: false});
+    }
+})
+
+/** @api {get} /trip/:id Get trip with given id */
+app.get('/trip/:id', (req, res) => {
+    try {
+        const id = req.params.id;
+
+        res.json({
+            success: true,
+            trip: trips[id]
+        });
     } catch (error) {
         res.send({success: false});
     }

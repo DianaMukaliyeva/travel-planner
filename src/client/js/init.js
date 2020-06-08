@@ -59,7 +59,11 @@ const tripAction = async (event, id, item) => {
         fillModalWindow(trip, 'Delete Trip', id);
         toggleModal();
     }
-}
+};
+
+const tripsFutureOrPast = () => {
+    document.querySelectorAll('.trip_detail').forEach(item => item.classList.toggle('hidden'));
+};
 
 export const init = async () => {
     const trips = await getAllTrips();
@@ -74,4 +78,8 @@ export const init = async () => {
         const id = item.dataset.id;
         item.addEventListener('click', function(e) {tripAction(e, id, item);});
     });
+    document.querySelectorAll(".radio_label").forEach(function(item) {
+        item.addEventListener('click', tripsFutureOrPast);
+    });
+
 };

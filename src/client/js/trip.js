@@ -21,6 +21,7 @@ export const addTripToUI = (id, trip) => {
     if (diff === 0) {
         pItem.innerHTML = 'is today &#128131;';
     } else if (diff < 0) {
+        divItem.classList.add('hidden');
         pItem.innerHTML = `was ${diff * -1} days ago`;
     } else if (diff === 1) {
         pItem.innerHTML = `is tomorrow`;

@@ -1,6 +1,3 @@
-import { deleteTrip } from './init';
-import { addTripToUI } from './trip';
-
 const clearModal = () => {
     document.getElementById('amount_of_days').innerHTML = '';
     document.getElementById('high_temp').innerHTML = '';
@@ -8,7 +5,7 @@ const clearModal = () => {
     document.getElementById('weather').innerHTML = '';
 };
 
-export const fillModalWindow = (trip, actionButton, id) => {
+export const fillModal = (trip, actionButton, id) => {
     const now = new Date();
     now.setHours(0,0,0,0);
     const timeOffset = now.getTimezoneOffset() * 60000;
@@ -42,25 +39,3 @@ export const fillModalWindow = (trip, actionButton, id) => {
         document.getElementById('weather').innerHTML = trip.weather;
     }
 }
-
-export const saveOrDeleteTrip = async (event) => {
-    const buttonValue = document.getElementById('modal_button').value;
- 
-    if (buttonValue === 'Save Trip') {
-        const request = await fetch('http://localhost:5000/saveTrip');
-        const res = await request.json();
-        addTripToUI(res.id, res.trip);
-        window.location.reload();
-    } else if (buttonValue === 'Delete Trip') {
-        const id = event.target.dataset.id;
-        const item = document.querySelector('.trip_detail[data-id="' + id + '"]');
-        deleteTrip(id, item);
-    }
-
-    toggleModal();
-};
-
-export const toggleModal = () => {
-    document.getElementById('trip_modal').classList.toggle("show-modal");
-}
-

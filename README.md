@@ -18,7 +18,7 @@ The motivation for doing this project was the opportunity to consolidate what I 
 
 ## Getting started
 
-Click [here]().
+Click [here](https://travel-planner20.herokuapp.com/).
 You will need to enter the name of the city where you are planning to go and the date of when you will arrive at the destination.
 By the time you have entered the information and clicked search, the window with information about your trip will show up. You can save it and it will added onto the website. You can remove the entry if you wish to do so.
 

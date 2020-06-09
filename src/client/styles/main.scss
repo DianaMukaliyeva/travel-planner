@@ -123,7 +123,7 @@ body {
 }
 
 /* Large Screens */
-@media (min-width:901px) {
+@media (min-width:901px) and (max-width:1200px) {
     .radio-toolbar .radio_label:hover {
         background: rgba(172, 171, 171, 0.521);
     }
@@ -145,7 +145,7 @@ body {
 }
 
 /* Very Large Screens */
-@media (min-width:1700px) {
+@media (min-width:1201px) {
     .radio-toolbar .radio_label:hover {
         background: rgba(202, 202, 202, 0.596);
     }

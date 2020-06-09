@@ -1,3 +1,4 @@
+/** Set class 'active-class' to navigation menu. */
 export const setActiveNavMenu = () => {
     let mainNavLinks = document.querySelectorAll('.menu__link');
     let footer_nav = document.getElementById('footer_nav');

@@ -3,6 +3,15 @@
 This application will help you find some relevant information about place, where you want to go.
 It will provide you with information of weather and show you picture of this place.
 
+The goal of this project was to have practice with:
+
+ * Set up Webpack
+ * Use Webpack Loaders and Plugins
+ * Sass styles
+ * Create layouts and page design
+ * Set up service workers
+ * Use APIs and create requests to external APIs
+
 ## Motivation
 
 The motivation for doing this project was the opportunity to consolidate what I have learned through practice.

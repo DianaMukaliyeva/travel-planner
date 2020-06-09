@@ -44,7 +44,6 @@ const getTripInformation = async (url, data) => {
  *    }
 */
 const handleEvent = (trip) => {
-    console.log(trip);
     fillModal(trip, 'Save Trip', -1);
     toggleModal();
 };

@@ -1,4 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
     mode: 'production',
@@ -8,7 +12,7 @@ module.exports = {
         library: "Client"
     },
     optimization: {
-        minimize: false
+        minimizer: [new TerserPlugin(), new OptimizeCssAssetsPlugin()],
     },
     module: {
         rules: [
@@ -19,7 +23,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: ["style-loader", "css-loader", "sass-loader"]
+                use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
             },
             {
                 test: /\.(png|jpe?g|gif)$/i,
@@ -36,6 +40,14 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({template: 'src/client/html/index.html'}),
+        new HtmlWebpackPlugin({
+            template: "./src/client/html/index.html",
+            filename: "./index.html",
+            minify: {
+                collapseWhitespace: true
+            }
+        }),
+        new MiniCssExtractPlugin({filename: '[name].css'}),
+        new WorkboxPlugin.GenerateSW()
     ]
 };

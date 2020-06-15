@@ -193,3 +193,5 @@ app.get('/trip/:id', (req, res) => {
 app.get('/trips', (req, res) => {
     res.json(trips);
 })
+
+module.exports = app

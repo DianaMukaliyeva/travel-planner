@@ -3,6 +3,8 @@
 This application will help you find some relevant information about place, where you want to go.
 It will provide you with information of weather and show you picture of this place.
 
+Have a look at the [example website](https://travel-planner20.herokuapp.com/). 
+
 The goal of this project was to have practice with:
 
  * Set up Webpack
